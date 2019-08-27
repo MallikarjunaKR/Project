@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/font-awesome-5.6.3.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/mdb.css">
+    <link rel="stylesheet" href="bootstrap/css/style.css">
+    <style>
+        #card1{
+            display:none;
+        }
+    .card{
+        width:500px;
+        background-color: aqua;
+        display:block;
+    }
+    #textarea{
+        width:200px;
+        height:100px;
+    }
+    #btn{
+        width:200px;
+        background :red;
+        color:cornsilk;
+    }
+    #emailmessage,#passmessage,#companymessage,#usermessage{
+        color:red;
+    }
+    
+</style>
+<script>
+     function verify(){
+     
+    let card=document.getElementById("card");
+    let username=document.getElementById("username").value;
+    let email=document.getElementById("email").value;
+    let password=document.getElementById("password").value;
+    let company=document.getElementById("company").value;
+    let card1username=document.getElementById("card1username");
+    let card1email=document.getElementById("card1email");
+    let card1password=document.getElementById("card1password");
+
+    let homenumber=document.getElementById("homenumber").value;
+    let street=document.getElementById("street").value;
+    let city=document.getElementById("city").value;
+
+
+     card1username.innerHTML=`${homenumber}`;
+     card1email.innerHTML=`${street}`;
+     card1password.innerHTML=`${city}`;
+     
+
+    var usermessage=document.getElementById("usermessage");
+    var emailmessage=document.getElementById("emailmessage");
+    var passmessage=document.getElementById("passmessage");
+    var companymessage=document.getElementById("companymessage");
+    
+         if(email.length==0){
+        emailmessage.innerHTML="****email should not be empty";
+    }else{
+        var count=0;
+    for(var i=1;i<email.length;i++){
+       if(email.charAt(i)=='@'){
+        count++;
+       }
+    }
+    if(count==0){
+        emailmessage.innerHTML="****email should contain @"
+    }
+}
+
+    
+    if(password.length==0){
+        passmessage.innerHTML="****password should not be empty";
+    }
+
+    if(company.length==0){
+        companymessage.innerHTML="****company field should not be empty";
+    }
+    if(username.length==0){
+        usermessage.innerHTML="****username field should not be empty";
+    }
+    if((email.length!=0&&count!=0)&&password.length!=0&&company.length!=0&&username.length!=0){
+        card.style.display='none';
+        
+        card1.style.display='block';
+        
+        
+    }
+
+}
+</script>
+</head>
+    <body>
+            <div class="card mt-5 ml-5 "id="card" >
+                    <h4 class="ml-5 display-5">REGISTRATION FORM</h4>
+                
+                            <h5 class=" mt-3 ml-5" >USERNAME :</h5>
+        
+                            <input type="text" class="ml-5 mr-5" id="username"><br>
+                            <span id="usermessage"class="ml-5 mr-5" ></span>
+                            <h5 class="ml-5">EMAIL :</h5>
+                            
+        
+                            <input type="mail" class="ml-5 mr-5"onkeyup="keyup()" id="email"><br>
+                            <span id="emailmessage"class="ml-5 mr-5" ></span>
+                            <h5 class="ml-5 mr-5">PASSWORD :</h5>
+                            <input type="password" class="ml-5 mr-5" id="password"><br>
+                            <span id="passmessage"class="ml-5 mr-5" ></span>
+                            <h5 class="ml-5 mr-5">ORGANISATION/COMPANY :</h5>
+                            <input type="text" class="ml-5 mr-5" id="company"><br>
+                            <span id="companymessage"class="ml-5 mr-5" ></span>  
+                            <br>
+                            <h4 class="ml-5 mr-5">USER ADDRESS :</h4>
+                            <h5 class="ml-5 mr-5">HOME NUMBER :</h5>
+                            <input type="text" class="ml-5 mr-5" id="homenumber"><br>
+                            <h5 class="ml-5 mr-5">STREET :</h5>
+                            <input type="text" class="ml-5 mr-5" id="street"><br>
+                            <h5 class="ml-5 mr-5">CITY :</h5>
+                            <input type="text" class="ml-5 mr-5" id="city"><br>
+                            <input type="checkbox" class="mt-3 ml-5 mr-5 "><h5 class="ml-5 mr-5">accept terms and conditions</h5>
+                            <button type="button"  class="btn ml-5  mt-5 mb-5" onclick="verify()" id="btn"  >REGISTER </button>  
+                               
+                            
+                </div>
+
+             <div class="card mt-5 ml-5" id="card1">
+              <span id="card1username"></span>
+              <span id="card1email"></span>
+              <span id="card1password"></span>
+             </div>
+
+
+
+
+
+
+
+        <script src="bootstrap/js/jquery-3.3.1.min.js" ></script>
+<script src="bootstrap/js/popper.min.js" ></script>
+<script src="bootstrap/js/bootstrap.min.js" ></script>
+<script src="bootstrap/js/mdb.min.js" ></script>
+<script src="../script.js" ></script>
+    </body>
+    </head>
